@@ -35,7 +35,8 @@ services:
       - /home/jo/ndff/la/la-toolkit/data/logs/:/home/ubuntu/ansible/logs/:rw
       - /home/jo/ndff/la/la-toolkit/data/ssh:/home/ubuntu/.ssh/:rw
       - /home/jo/.npm
-            # For 'custom' ala-install
+      # For 'custom' ala-install
+      # For 'custom' ala-install
       # Take into account that if your change from 'custom' to other ala-install version
       # code changes will be git stashed
       # - /home/jo/ndff/la/la-toolkit/data/ala-install:/home/ubuntu/ansible/ala-install/:rw
