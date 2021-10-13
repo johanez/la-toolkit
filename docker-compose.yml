@@ -30,14 +30,14 @@ services:
     # The volumes should be writeable by your user so maybe you have to set your uid:gid here
     # user: 1000:1000
     volumes:
-      # mkdir -p /data/la-toolkit/config/ /data/la-toolkit/logs/ /data/la-toolkit/ssh/
-      - /data/la-toolkit/config/:/home/ubuntu/ansible/la-inventories/:rw
-      - /data/la-toolkit/logs/:/home/ubuntu/ansible/logs/:rw
-      - /data/la-toolkit/ssh:/home/ubuntu/.ssh/:rw
+      # mkdir -p /home/jo/ndff/la/la-toolkit/data/config/ /home/jo/ndff/la/la-toolkit/data/logs/ /home/jo/ndff/la/la-toolkit/data/ssh/
+      - /home/jo/ndff/la/la-toolkit/data/config/:/home/ubuntu/ansible/la-inventories/:rw
+      - /home/jo/ndff/la/la-toolkit/data/logs/:/home/ubuntu/ansible/logs/:rw
+      - /home/jo/ndff/la/la-toolkit/data/ssh:/home/ubuntu/.ssh/:rw
       # For 'custom' ala-install
       # Take into account that if your change from 'custom' to other ala-install version
       # code changes will be git stashed
-      # - /data/la-toolkit/ala-install:/home/ubuntu/ansible/ala-install/:rw
+      # - /home/jo/ndff/la/la-toolkit/data/ala-install:/home/ubuntu/ansible/ala-install/:rw
 
   mongo:
     image: mongo:4
@@ -56,7 +56,7 @@ services:
       # If you don't clone the la-toolkit repo you will need also the mongo-init.sh script that
       # setup the db initially
       - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
-      - /data/la-toolkit/mongo:/data/db
+      - /home/jo/ndff/la/la-toolkit/data/mongo:/data/db
 
   mongo-db-backup:
     image: tiredofit/mongodb-backup
@@ -81,7 +81,7 @@ services:
       - TZ=Europe/Copenhagen
     restart: always
     volumes:
-      - /data/la-toolkit/backups:/backups
+      - /home/jo/ndff/la/la-toolkit/data/backups:/backups
 
 #  Optionally in production (because this will open your db to the outside):
 #
